@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#0F172A" />
+  <title>MAZ MANDARIN AKADEMIK — Platform Pembelajaran Bahasa Cina BCK</title>
+
+  <!-- Ikon Rasmi & Manifest PWA -->
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" type="image/png" href="https://i.postimg.cc/J4KqFMfb/Mandarin-Panda-Learning-Emblem.png" />
+  <link rel="apple-touch-icon" href="https://i.postimg.cc/J4KqFMfb/Mandarin-Panda-Learning-Emblem.png" />
+
+  <!-- Tipografi Moden Dwibahasa -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@500;700;900&family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-layout">
+    <!-- HEADER UTAMA -->
+    <header class="app-header">
+      <div class="header-brand" id="btnHomeBrand" role="button" tabindex="0">
+        <div class="header-logo-wrap">
+          <img
+            src="https://i.postimg.cc/J4KqFMfb/Mandarin-Panda-Learning-Emblem.png"
+            alt="MAZ MANDARIN AKADEMIK"
+            class="header-logo"
+          />
+        </div>
+        <div>
+          <h1 class="header-title">MAZ MANDARIN</h1>
+          <span class="header-subtitle">AKADEMIK · BCK KSSM</span>
+        </div>
+      </div>
+
+      <div class="header-badges">
+        <div class="xp-badge" title="Bintang Terkumpul">
+          <span>⭐</span>
+          <span id="totalStarsDisplay">0</span>
+        </div>
+        <div class="level-pill-badge" id="headerLevelBadge">T1</div>
+      </div>
+    </header>
+
+    <!-- =====================================================
+         TAB 1: AKADEMI (PILIH TINGKATAN -> GRID BAB -> 7 STESEN)
+         ===================================================== -->
+    <main id="viewAcademy" class="tab-view active">
+      <!-- SUB-VIEW A: PILIH TINGKATAN & GRID 7 BAB -->
+      <div id="subViewChapters">
+        <div class="segmented-bar" role="tablist" aria-label="Pilih Tingkatan">
+          <button class="seg-btn active" data-level="t1" role="tab" aria-selected="true">Tingkatan 1</button>
+          <button class="seg-btn" data-level="t2" role="tab" aria-selected="false">Tingkatan 2</button>
+          <button class="seg-btn" data-level="t3" role="tab" aria-selected="false">Tingkatan 3</button>
+        </div>
+
+        <section class="resume-banner-3d">
+          <div class="resume-left">
+            <span class="resume-tag">📍 SAMBUNG LATIHAN TERAKHIR</span>
+            <h2 class="resume-title" id="lastActivityTitle">Bab 1: 你好 (Apa Khabar)</h2>
+            <p class="resume-sub" id="lastActivitySub">Mula dengan Stesen 1: Kad Imbas Pintar</p>
+          </div>
+          <button class="btn-resume-3d" id="btnResumeLast">Mula ▶</button>
+        </section>
+
+        <div class="section-row-head">
+          <h2 class="sec-heading">Modul Pembelajaran (7 Bab)</h2>
+          <span class="sec-counter" id="chapterSummaryText">0/49 Stesen</span>
+        </div>
+
+        <div id="chapterGridContainer" class="chapters-grid"></div>
+      </div>
+
+      <!-- SUB-VIEW B: 7 STESEN PEDAGOGI BAGI BAB YANG DIPILIH -->
+      <div id="subViewStations" class="hidden">
+        <div class="nav-breadcrumb">
+          <button class="btn-back-pill" id="btnBackToChapters">← Senarai Bab</button>
+          <span class="crumb-status" id="selectedChapterProgress">0/7 Selesai</span>
+        </div>
+
+        <div class="chapter-spotlight-card">
+          <div class="spotlight-meta" id="chapterBannerLevel">TINGKATAN 1 · BAB 1</div>
+          <h2 class="spotlight-title" id="chapterBannerTitle">你好 (Apa Khabar)</h2>
+          <p class="spotlight-desc" id="chapterBannerDesc">Ikuti 7 stesen pembelajaran mengikut tertib daripada Kad Imbas hingga Pemahaman.</p>
+        </div>
+
+        <div class="stations-timeline" id="stationListContainer"></div>
+      </div>
+
+      <!-- SUB-VIEW C: ARENA INTERAKTIF (FLASHCARD & KUIZ) -->
+      <div id="subViewArena" class="hidden">
+        <div class="nav-breadcrumb">
+          <button class="btn-back-pill" id="btnBackToStations">← 7 Stesen</button>
+          <span class="crumb-title" id="arenaHeaderTitle">Stesen 1: Kad Imbas</span>
+          <span class="crumb-status" id="arenaCounter">1/5</span>
+        </div>
+
+        <div class="arena-progress-bar">
+          <div class="arena-progress-fill" id="arenaProgressFill" style="width: 20%"></div>
+        </div>
+
+        <!-- MOD 1: FLASHCARD BERGAMBAR 3D (STESEN 1) -->
+        <div id="flashcardStage" class="hidden">
+          <div class="flashcard-3d-wrapper" id="flashcardBox" role="button" tabindex="0" aria-label="Klik untuk pusing kad imbas">
+            <div class="flashcard-inner" id="flashcardInner">
+              <div class="flashcard-face flashcard-front">
+                <span class="fc-badge">KAD IMBAS · KLIK UNTUK TERJEMAHAN 🔄</span>
+                <div class="fc-emoji-art" id="fcEmoji">👋</div>
+                <div class="fc-hanzi" id="fcHanzi">你好</div>
+                <div class="fc-pinyin" id="fcPinyin">nǐ hǎo</div>
+                <button type="button" class="btn-audio-chip" id="btnFcSpeak">🔊 Dengar Sebutan</button>
+              </div>
+              <div class="flashcard-face flashcard-back">
+                <span class="fc-badge back">MAKSUD & PENGGUNAAN</span>
+                <div class="fc-meaning" id="fcMeaning">Apa khabar / Helo</div>
+                <div class="fc-example-box">
+                  <div class="fc-ex-cn" id="fcExampleCn">老师，您好！</div>
+                  <div class="fc-ex-py" id="fcExamplePy">Lǎoshī, nín hǎo!</div>
+                  <div class="fc-ex-bm" id="fcExampleBm">Apa khabar, cikgu!</div>
+                </div>
+                <span class="fc-tap-note">Klik kad untuk kembali ke depan</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="fc-controls">
+            <button type="button" class="btn-3d-secondary" id="btnPrevCard">← Sebelum</button>
+            <button type="button" class="btn-3d-primary" id="btnNextCard">Kad Seterusnya →</button>
+          </div>
+        </div>
+
+        <!-- MOD 2: KUIZ INTERAKTIF (STESEN 2 – STESEN 7) -->
+        <div id="quizStage" class="quiz-arena-card hidden">
+          <div class="stage-pill-tag" id="challengePill">SOALAN 1 DARIPADA 5</div>
+          <h2 class="arena-instruction" id="quizInstruction">Pilih jawapan yang tepat</h2>
+
+          <div class="arena-prompt-box" id="promptBox">
+            <div class="prompt-visual-emoji hidden" id="promptEmoji"></div>
+            <div class="prompt-hanzi" id="promptHanzi">你好</div>
+            <div class="prompt-pinyin" id="promptPinyin">nǐ hǎo</div>
+            <div class="prompt-passage hidden" id="promptPassage"></div>
+          </div>
+
+          <p class="arena-question-text hidden" id="quizQuestionText"></p>
+
+          <div class="options-grid" id="optionsGrid"></div>
+
+          <div class="builder-area hidden" id="builderArea">
+            <div class="answer-dropzone" id="answerDropzone">
+              <span class="dropzone-placeholder">Ketik blok perkataan di bawah mengikut urutan</span>
+            </div>
+            <div class="word-bank" id="wordBank"></div>
+            <button class="btn-3d-primary full-width" id="btnCheckOrder">Semak Susunan Ayat ✓</button>
+          </div>
+
+          <div class="feedback-box hidden" id="feedbackBox">
+            <div class="feedback-title" id="feedbackTitle">🎉 Yay! Jawapan Betul!</div>
+            <div class="feedback-detail" id="feedbackDetail">Penerangan di sini.</div>
+          </div>
+
+          <button class="btn-3d-primary full-width hidden" id="btnNextChallenge">
+            Teruskan →
+          </button>
+
+          <div class="audio-footer-row">
+            <button class="btn-audio-chip" id="btnSpeakAudio" type="button">
+              🔊 Dengar Sebutan Mandarin
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- =====================================================
+         TAB 2: PRESTASI & LAPORAN PDF
+         ===================================================== -->
+    <main id="viewProgress" class="tab-view hidden">
+      <div class="progress-hero-box">
+        <div class="report-brand-row">
+          <img
+            src="https://i.postimg.cc/J4KqFMfb/Mandarin-Panda-Learning-Emblem.png"
+            alt="Logo"
+            class="report-logo-small"
+          />
+          <div>
+            <h2 class="modal-title">Rekod Prestasi Murid</h2>
+            <p class="modal-subtitle" id="reportLevelSubtitle">MAZ MANDARIN AKADEMIK · Tingkatan 1</p>
+          </div>
+        </div>
+
+        <div class="report-summary-grid">
+          <div class="report-stat-box">
+            <span class="report-stat-label">Stesen Selesai</span>
+            <strong class="report-stat-value" id="reportCompletedWorlds">0/49</strong>
+          </div>
+          <div class="report-stat-box">
+            <span class="report-stat-label">Bintang Terkumpul</span>
+            <strong class="report-stat-value">⭐ <span id="reportTotalStars">0</span></strong>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="sec-heading" style="margin-bottom: 10px;">Pecahan Kemajuan Mengikut Bab</h3>
+      <div id="reportBreakdownList" class="report-list"></div>
+
+      <button class="btn-3d-primary full-width" id="btnPrintReport" style="margin-top: 16px;">
+        🖨️ Cetak / Simpan Rekod PDF
+      </button>
+    </main>
+
+    <!-- =====================================================
+         TAB 3: TETAPAN & SUARA
+         ===================================================== -->
+    <main id="viewSettings" class="tab-view hidden">
+      <h2 class="sec-heading" style="margin-bottom: 12px;">⚙️ Tetapan Aplikasi</h2>
+
+      <div class="settings-card">
+        <div class="setting-item">
+          <div>
+            <strong>Papar Bantuan Pinyin</strong>
+            <p>Tunjukkan ejaan Pinyin di bawah aksara Cina semasa kuiz.</p>
+          </div>
+          <input type="checkbox" id="togglePinyin" checked />
+        </div>
+
+        <div class="setting-item">
+          <div>
+            <strong>Kesan Bunyi Audio (Betul & Salah)</strong>
+            <p>Mainkan fail audio betul.m4a dan salah.m4a semasa kuiz.</p>
+          </div>
+          <input type="checkbox" id="toggleSoundFx" checked />
+        </div>
+
+        <div class="setting-item">
+          <div>
+            <strong>Sebutan Automatik</strong>
+            <p>Sebut perkataan Mandarin secara automatik apabila kad/soalan dibuka.</p>
+          </div>
+          <input type="checkbox" id="toggleAutoSpeak" />
+        </div>
+
+        <div class="setting-voice-box">
+          <label for="selectMandarinVoice"><strong>🎙️ Pilihan Suara Guru Mandarin (Fayin Natural)</strong></label>
+          <p class="voice-hint">Pilih suara Neural/Natural yang tersedia pada peranti anda:</p>
+          <select id="selectMandarinVoice" class="voice-select"></select>
+          <button type="button" class="btn-audio-chip full-width" id="btnTestVoice">🔊 Uji Suara Guru</button>
+        </div>
+
+        <hr class="divider" />
+
+        <button class="btn-danger full-width" id="btnResetProgress">
+          🗑️ Set Semula Kemajuan Tingkatan Ini
+        </button>
+      </div>
+    </main>
+
+    <!-- BOTTOM DOCK NAVIGATION -->
+    <nav class="bottom-dock" aria-label="Navigasi Utama">
+      <button class="dock-item active" data-tab="viewAcademy">
+        <span class="dock-icon">🏫</span>
+        <span class="dock-label">Akademi</span>
+      </button>
+      <button class="dock-item" data-tab="viewProgress">
+        <span class="dock-icon">📈</span>
+        <span class="dock-label">Prestasi</span>
+      </button>
+      <button class="dock-item" data-tab="viewSettings">
+        <span class="dock-icon">⚙️</span>
+        <span class="dock-label">Tetapan</span>
+      </button>
+    </nav>
+  </div>
+
+  <!-- MODAL AKTIVASI KOD AKSES PENUH (RM5 SEKALI BAYAR) -->
+  <div id="modalLicense" class="license-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="licenseTitle">
+    <div class="license-card-3d">
+      <button type="button" class="license-close" id="btnCloseLicense" aria-label="Tutup">✕</button>
+      <div class="license-badge">🔒 KANDUNGAN PENUH TINGKATAN 1–3</div>
+      <h2 id="licenseTitle" class="license-title">Buka Kesemua 21 Bab (735 Cabaran)</h2>
+      <p class="license-desc">
+        Bab 1 dibuka percuma untuk percubaan. Masukkan <strong>Kod Akses Rasmi</strong> untuk membuka Bab 2 hingga Bab 7 bagi Tingkatan 1, 2 & 3 tanpa had masa!
+      </p>
+
+      <div class="license-perks">
+        <div>✅ Akses penuh 21 Bab BCK (T1, T2 & T3)</div>
+        <div>✅ 105 Kad Imbas Bergambar 3D + Audio</div>
+        <div>✅ Boleh guna tanpa internet (Offline)</div>
+        <div>✅ Hanya RM5 sekali bayar · Tiada yuran bulanan</div>
+      </div>
+
+      <input
+        type="text"
+        id="inputLicenseKey"
+        class="license-input"
+        placeholder="Masukkan Kod Akses (cth: MAZ2026)"
+        autocomplete="off"
+      />
+      <p id="licenseErrorMsg" class="license-error hidden">Kod akses tidak sah. Sila semak semula atau hubungi Cikgu Maz.</p>
+
+      <button type="button" class="btn-3d-primary full-width" id="btnActivateLicense">
+        🔓 Aktifkan Akses Penuh Sekarang
+      </button>
+
+      <a
+        href="https://wa.me/60163056280?text=Salam%20Cikgu%2C%20saya%20berminat%20untuk%20dapatkan%20Kod%20Akses%20Penuh%20MAZ%20MANDARIN%20AKADEMIK%20(RM5)"
+        target="_blank"
+        rel="noopener"
+        class="btn-wa-buy"
+      >
+        💬 Belum ada kod? Dapatkan Kod Akses (RM5)
+      </a>
+    </div>
+  </div>
+
+  <!-- Elemen Audio M4A Tempatan -->
+  <audio id="audioSfxCorrect" src="betul.m4a" preload="auto"></audio>
+  <audio id="audioSfxWrong" src="salah.m4a" preload="auto"></audio>
+
+  <!-- Bank Data Tingkatan 1, 2 & 3 (Wajib dimuatkan sebelum app.js) -->
+  <script src="data-t1.js"></script>
+  <script src="data-t2.js"></script>
+  <script src="data-t3.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<resources>
+    <string name="app_name">MAZ Mandarin</string>
+    <string name="app_subtitle">AKADEMIK · BCK KSSM</string>
+
+    <!-- Navigation -->
+    <string name="nav_academy">Akademi</string>
+    <string name="nav_challenge">Cabaran</string>
+    <string name="nav_progress">Prestasi</string>
+    <string name="nav_settings">Tetapan</string>
+
+    <!-- Forms -->
+    <string name="form_t1">Tingkatan 1</string>
+    <string name="form_t2">Tingkatan 2</string>
+    <string name="form_t3">Tingkatan 3</string>
+
+    <!-- Academy -->
+    <string name="resume_tag">SAMBUNG LATIHAN TERAKHIR</string>
+    <string name="btn_start">Mula</string>
+    <string name="btn_continue">Teruskan</string>
+    <string name="modules_heading">Modul Pembelajaran (7 Bab)</string>
+    <string name="back_to_chapters">Senarai Bab</string>
+    <string name="back_to_stations">7 Stesen</string>
+    <string name="daily_goal_title">Misi Harian</string>
+
+    <!-- Flashcard & Quiz -->
+    <string name="fc_front_hint">KAD IMBAS · KETIK UNTUK TERJEMAHAN</string>
+    <string name="fc_back_hint">MAKSUD &amp; CONTOH AYAT</string>
+    <string name="fc_tap_return">Ketik kad untuk kembali ke depan</string>
+    <string name="btn_speak">Dengar Sebutan</string>
+    <string name="btn_speak_slow">Perlahan 0.7x</string>
+    <string name="btn_prev_card">Sebelum</string>
+    <string name="btn_next_card">Seterusnya</string>
+    <string name="btn_finish_flashcard">Tamat &amp; Kumpul Bintang</string>
+    <string name="btn_check_order">Semak Susunan Ayat</string>
+    <string name="btn_clear_order">Padam</string>
+    <string name="btn_next_challenge">Cabaran Seterusnya</string>
+    <string name="btn_finish_station">Tamatkan Stesen &amp; Kumpul ⭐</string>
+    <string name="dropzone_placeholder">Ketik blok perkataan di bawah mengikut urutan ayat</string>
+
+    <!-- Challenge Tab -->
+    <string name="challenge_title">Arena Cabaran &amp; Makmal Sebutan</string>
+    <string name="speed_drill_title">Cabaran Kilat 10 Soalan</string>
+    <string name="speed_drill_desc">Uji kepantasan &amp; ketepatan dengan soalan rawak daripada semua bab tingkatan aktif. Bina kombo untuk markah tertinggi!</string>
+    <string name="tone_lab_title">Makmal 4 Nada Pinyin</string>
+    <string name="vocab_explorer_title">Kamus Pintar BCK (105 Kosa Kata)</string>
+    <string name="search_vocab_hint">Cari Hanzi, Pinyin atau maksud BM…</string>
+
+    <!-- Progress Tab -->
+    <string name="progress_title">Rekod Prestasi Murid</string>
+    <string name="progress_badges_title">Lencana Pencapaian</string>
+    <string name="progress_breakdown_title">Pecahan Kemajuan Mengikut Bab</string>
+    <string name="btn_print_pdf">Cetak / Simpan PDF</string>
+    <string name="btn_share_report">Kongsi Laporan</string>
+
+    <!-- Settings Tab -->
+    <string name="settings_title">Tetapan &amp; Suara</string>
+    <string name="setting_pinyin_title">Papar Bantuan Pinyin</string>
+    <string name="setting_pinyin_desc">Tunjukkan ejaan Pinyin di bawah aksara Cina semasa kuiz.</string>
+    <string name="setting_sfx_title">Kesan Bunyi Audio (Betul &amp; Salah)</string>
+    <string name="setting_sfx_desc">Mainkan sorakan kejayaan dan bunyi maklum balas semasa kuiz.</string>
+    <string name="setting_autospeak_title">Sebutan Automatik</string>
+    <string name="setting_autospeak_desc">Sebut perkataan Mandarin secara automatik apabila kad atau soalan dibuka.</string>
+    <string name="setting_dark_title">Mod Gelap Akademik</string>
+    <string name="setting_dark_desc">Tukar paparan gelap yang selesa untuk ulang kaji waktu malam.</string>
+    <string name="setting_voice_title">Pilihan Suara &amp; Kelajuan Guru Mandarin</string>
+    <string name="btn_test_voice">Uji Suara Guru Mandarin</string>
+    <string name="btn_reset_progress">Set Semula Kemajuan Tingkatan Ini</string>
+    <string name="dialog_reset_title">Set Semula Kemajuan?</string>
+    <string name="dialog_reset_body">Semua stesen selesai dan bintang bagi tingkatan aktif akan dipadamkan. Teruskan?</string>
+    <string name="action_cancel">Batal</string>
+    <string name="action_confirm">Ya, Padam</string>
+</resources>

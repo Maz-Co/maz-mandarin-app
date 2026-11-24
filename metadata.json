@@ -1,0 +1,6 @@
+{
+  "name": "MAZ Mandarin",
+  "description": "Aplikasi pembelajaran Bahasa Cina Komunikasi (BCK) KSSM Tingkatan 1–3 untuk telefon & tablet dengan kad imbas 3D, audio sebutan Mandarin, gamifikasi XP, streak harian, dan 735 cabaran interaktif.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
